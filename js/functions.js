@@ -323,13 +323,13 @@ ARGUMENTS:
 Funktionen tar inte emot några argument.
 
 SIDE-EFFECTS: 
-1.En variabel deklareras som är en referens till en nodelist som är alla selekterade li i country_filter.
-Vi anropar array_each med variabeln med nodelistan och en callback funktion. 
-Detta generar en en array(a)med nodelitstan plus nycklarna ID för varje element översatta till en sträng. 
+1.En variabel deklareras som är en referens till en nodelist som är alla li-element med klassen selected i country_filter (T).
+array_each anropas med (T) och en callback-funktion. 
+Detta generar en en array(a) med nodelista plus nycklarna "id" för varje element omvandlat till en sträng. 
 
-2. loopar vi igenom alla element i arryen skapad i den tidigare funktionen och skapar en ny variabel av varje index i arrayen. 
+2. Alla element i arryen loopas igenom och skapar, i den tidigare funktionen, och skapar en ny variabel av varje index i arrayen. 
 Därefter loopar UNIVERSITIES igenom och en ny variabel skapas för varje index. 
-Dessa två varaiblar jämförs med deras ”Id”.
+Dessa två varaiblar jämförs med deras ”id”.
 Om dessa matchas pushas dom in i en ny array(b).
 
 3. En tom array deklarerar (X).
@@ -342,19 +342,19 @@ Om funktionen returnerar true pushas c in i x.
 
 4. Kommande tre funktioner gör samma sak men med olika värden. (LEVELS, LANGUAGES, SUBJECTS)
 
-En ny variabel skapas med referens till en nodelist av selekterade li element från vardera förälder med namn baserat på de olika värden. (Z)
+En ny variabel deklareras med referens till en nodelist av selekterade li-element från vardera förälder med namn baserat på de olika värdena (Z).
 
-En tom array deklareras. (r)
-Via array_each anropas  Z och callback-funktion. 
-Callback funtion omvandlar varje index i Z’s nyckelns id till en sträng. 
+En tom array deklareras (r).
+Via array_each anropas Z och en callback-funktion. 
+Callback-funtionen omvandlar varje index i Z’s nyckelns "id" till en sträng. 
 
 X värde uppdateras genom array_filter som anropas med värdena x och test_funktionerna.
-Test funktionen returnerar varje index från r om den inkluderar X.Z.’s id.
+Test funktionen returnerar varje index från (r) om den inkluderar X.Z.’s id.
 
-5. En variabel deklareras som är en referens till input-elements värde. (u)
-Om variabelns värde är inte är tomt körs test function. 
+5. En variabel deklareras som är en referens till input-elements värde (u).
+Om variabelns värde inte är en tom sträng, anropas test-function. 
 
-Test function returnerar en ny array om index av X med nyckeln name inkluderas (u).
+Test-function returnerar en ny array om index av X med nyckeln "name" inkluderas i (u).
 X värde uppdateras genom array_filter som anropas med värdena (X och test_function).
 
 Funktionen returnerar X. */
