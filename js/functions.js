@@ -90,6 +90,21 @@ function add_group_toggling (filter_container_dom) {
 // CODE according to specifications
 function toggle_cities (event) {
 
+  let all_cities = document.querySelectorAll("#country_filter li");
+    const button = document.querySelector("button");
+    button.classList.toggle("selected");
+
+    function toggle_selected(city){
+
+    if (button.classList !== ("selected")){
+      city.classList.toggle("selected");
+
+      update_programmes();
+      }
+    
+ }
+ array_each(all_cities, toggle_selected);
+
   /*
 
     ARGUMENTS
