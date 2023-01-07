@@ -188,9 +188,6 @@ function create_filter(type, DATA) {
   }
   array_each(DATA, create);
 }
-create_filter("level", LEVELS);
-create_filter("subject", SUBJECTS);
-create_filter("language", LANGUAGES);
 
 
 // G / VG (see details in specification)
