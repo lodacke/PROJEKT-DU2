@@ -245,9 +245,7 @@ function create_programme (programme) {
     
 }
 array_each(PROGRAMMES, create_programme);
-    
 
-}
 
 
 // G
@@ -267,6 +265,16 @@ function update_programmes () {
       NO RETURN VALUE
 
   */
+      let p_in_container = document.querySelector("#programmes > p");
+      let programmes_before = document.querySelector("#programmes > ul");
+
+      programmes_before.innerHTML = "";
+      if (programmes_before.length !== 0){
+        p_in_container.innerHTML = "Inga program upfyller nuvarande filter";
+      }
+       
+      let selected_programme = read_filters();
+      array_each(selected_programme, create_programme);
 
 }
 
