@@ -15,10 +15,10 @@
 
 
 // Create Filter Elements
-create_levels_filter();
-create_subjects_filter();
-create_language_filter();
-create_countries_cities_filters();
+//create_levels_filter();
+//create_subjects_filter();
+//create_language_filter();
+create_filter();
 
 // Add Interaction of search field button
 document.querySelector("#search_field button").addEventListener("click", update_programmes);

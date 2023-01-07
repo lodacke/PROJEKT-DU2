@@ -164,41 +164,33 @@ function create_countries_cities_filters () {
 // ABSTRACT AND WRITE SPECIFICATION
 //    As you can see, all three functions below do basically the same thing.
 //    Abstract them to one function, and write the specification of that function.
-function create_levels_filter () {
-  function create_level (level) {
+
+/*SPECIFICATIONS create_filter
+arguments: Funktionen tar emot två funktioner, en sträng och en array.
+Funktionen anropar array_each med argumentet DATA och den inre funktionen "create".
+side-effect: Funktionen skapar via funktionen "create" ett objekt kopplat till funktionen "create_filter" med nycklarna:
+
+Parent: Väljer ul element på HTML sidan med "filter" och filter som id.
+Class: "selected"
+TextContent: variabeln "object" och nycklen name.
+
+Funktionen ger även varje variabel ett data-id baserat på variabeln "object".
+*/
+
+function create_filter(type, DATA) {
+  function create(object) {
     const dom = create_filter_element({
-      parent: document.querySelector("#level_filter > ul"),
+      parent: document.querySelector(`#${type}_filter > ul`),
       class: "selected",
-      textContent: level.name,
+      textContent: object.name,
     });
-    dom.dataset.id = level.id;
+    dom.dataset.id = object.id;
   }
-  array_each(LEVELS, create_level);
+  array_each(DATA, create);
 }
-// Create Subjects Filter
-function create_subjects_filter () {
-  function create_subject (subject) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#subject_filter > ul"),
-      class: "selected",
-      textContent: subject.name,
-    });
-    dom.dataset.id = subject.id;
-  }
-  array_each(SUBJECTS, create_subject);
-}
-// Create Search Field
-function create_language_filter () {
-  function create_element (data) {
-    const dom = create_filter_element({
-      parent: document.querySelector("#language_filter > ul"),
-      class: "selected",
-      textContent: data.name,
-    });
-    dom.dataset.id = data.id;
-  }
-  array_each(LANGUAGES, create_element);
-}
+create_filter("level", LEVELS);
+create_filter("subject", SUBJECTS);
+create_filter("language", LANGUAGES);
 
 
 // G / VG (see details in specification)
