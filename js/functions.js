@@ -125,6 +125,45 @@ function toggle_cities (event) {
 // WRITE SPECIFICATION
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
+
+/*
+CREATE_COUNTRIES_CITIES_FILTERS
+ARGUMENTS: Funktionen tar inte emot några argument.
+
+SIDE EFFECT:
+När funktionen anropas, anropas funktionerna i create_country & create_city med array_each.
+
+Funktionen returnerar ingenting.
+
+
+
+CREATE_COUNTRY
+ARGUMENT: Funktionen tar emot ett argument (country) som är en variabel som representerar varje index i arrayen COUNTRIES.
+
+SIDE EFFECTS:
+Funktionen skapar en div med klassen country och klassen filter_container samt ger den id från arrayen (country + nyckeln, med namn id, från arrayen). 
+Funktionen appendar DOM-elementet till country_filter > ul.
+Den ger DOM-elementet titel av indexet "name" i arrayen, samt skapar en ul med klassen "filter_list".
+
+ Funktionen anropar TEST_FUNCTION som returnerar en array med alla städer som har samma countryID som country.id.
+
+Funktionen returnerar ingenting
+
+
+CREATE_CITY
+
+ARGUMENT: Funktionen tar emot ett argument (city) som är en variabel som prepresenterar varje index i arrayen city (en array som skapas i test funktionen create_country).
+
+SIDE EFFECTS:
+Funktionen skapar ett objekt (li-element i create_filter_element) med olika nycklar.
+Parent: objektet appendas till "rätt" förälder, så att rätt stad hamnar under rätt land, 
+Class: "selected",
+TextContent: variabeln med nyckeln "name".
+
+Funktionen ger ett data-id till objektet baserat på variabeln city.
+
+*/
+
 function create_countries_cities_filters () {
   function create_country (country) {
     const dom = document.createElement("div");
