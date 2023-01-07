@@ -135,8 +135,6 @@ När funktionen anropas, anropas funktionerna i create_country & create_city med
 
 Funktionen returnerar ingenting.
 
-
-
 CREATE_COUNTRY
 ARGUMENT: Funktionen tar emot ett argument (country) som är en variabel som representerar varje index i arrayen COUNTRIES.
 
@@ -148,7 +146,6 @@ Den ger DOM-elementet titel av indexet "name" i arrayen, samt skapar en ul med k
  Funktionen anropar TEST_FUNCTION som returnerar en array med alla städer som har samma countryID som country.id.
 
 Funktionen returnerar ingenting
-
 
 CREATE_CITY
 
