@@ -30,6 +30,17 @@ function click_filter_element (event) {
 // CODE according to specification
 function create_filter_element (data) {
 
+  const button = document.querySelector("button");
+  document.querySelector("button").addEventListener("click", toggle_cities);
+  button.classList.add(data.class);
+  const create_li = document.createElement("li");
+  data.parent.append(create_li);
+  create_li.classList.add(data.class);
+  create_li.textContent = data.textContent;
+  create_li.addEventListener("click", click_filter_element);
+
+  return create_li;
+
   /*
     ARGUMENTS
       data: object that contains the following keys:
