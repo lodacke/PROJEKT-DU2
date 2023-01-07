@@ -217,6 +217,35 @@ function create_programme (programme) {
     NO RETURN VALUE
 
   */  
+    document.querySelector("#programmes > p").innerHTML = "";
+     
+    let programme_dom = document.createElement("li");
+    programme_dom.classList.add("programme");
+    programme_dom.textContent = programme.name;
+    document.querySelector("#programmes > ul").append(programme_dom);
+
+    let sun_value = CITIES[UNIVERSITIES[programme.universityID].cityID].sun;
+
+    programme_dom.innerHTML = `
+    <div> ${programme.name} 
+    <p> ${UNIVERSITIES[programme.universityID].name}
+    <p> ${CITIES[UNIVERSITIES[programme.universityID].cityID].name},
+     ${COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name} </p>
+     <p> ${LEVELS[programme.levelID -1].name},
+         ${SUBJECTS[programme.subjectID].name},
+         ${LANGUAGES[programme.languageID].name} </p>
+    </div>
+    <div class="more_info"> </div>
+    <div class="bottom_programme">
+    <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, 
+    sun-index: (${percenter(sun_value, 365) + "%"})
+    </p> 
+    </div>
+    `
+    
+}
+array_each(PROGRAMMES, create_programme);
+    
 
 }
 
